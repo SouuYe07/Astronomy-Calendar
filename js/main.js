@@ -1,7 +1,8 @@
-const menu = document.getElementById("menu");
+const menu = document.querySelector(".menu");
+const calendar = document.querySelector(".calendar");
 const openCalendarBtn = document.getElementById("open-calendar");
 const settings = document.getElementById("settings");
-const themes = document.getElementById("themes");
+const themes = document.getElementById("themes-btn");
 const backBtn = document.getElementById("back-to-menu");
 
 openCalendarBtn.addEventListener("click", () => {
