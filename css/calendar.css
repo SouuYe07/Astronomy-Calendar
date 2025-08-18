@@ -1,0 +1,96 @@
+.calendar {
+  width: 90vw;
+  max-width: 550px;
+  height: 80vh;
+  display: none;
+  flex-direction: column;
+  background: rgba(10, 15, 25, 0.85);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255,255,255,0.05);
+  border-radius: 12px;
+  box-shadow: 0 8px 30px rgba(0,0,0,0.7);
+  overflow: hidden;
+  position: relative;
+  z-index: 1;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 14px 20px;
+  background: linear-gradient(90deg, #102542, #1c3b70);
+  border-bottom: 1px solid rgba(255,255,255,0.05);
+  font-weight: bold;
+  font-size: 1.1rem;
+  letter-spacing: 0.5px;
+}
+
+.btn {
+  cursor: pointer;
+  padding: 6px 10px;
+  border-radius: 6px;
+  transition: background 0.2s ease;
+}
+
+.btn:hover {
+  background: rgba(255,255,255,0.1);
+}
+
+/* Weekdays row */
+.weekdays {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  padding: 8px 10px;
+  background: rgba(255,255,255,0.05);
+  font-weight: 600;
+  font-size: 0.85rem;
+  text-align: center;
+  letter-spacing: 0.5px;
+}
+
+/* Days grid */
+.days {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  padding: 10px;
+  gap: 6px;
+  flex-grow: 1;
+}
+
+.days div {
+  background: var(--grid-bg);
+  padding: 12px 0;
+  text-align: center;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.days div:hover {
+  background: rgba(255,255,255,0.08);
+  transform: scale(1.03);
+}
+
+/* Highlight today */
+.days .today {
+  background: var(--today-bg);
+  border: 1px solid var(--accent);
+  font-weight: bold;
+}
+
+/* Responsive */
+@media (max-width: 500px) {
+  .calendar {
+    width: 95vw;
+    height: auto;
+  }
+  .weekdays, .days div {
+    font-size: 0.75rem;
+  }
+}
+
+/* Fallback if blur not supported */
+@supports not ((backdrop-filter: blur(10px)) or (-webkit-backdrop-filter: blur(10px))) {
+  .calendar { background: rgba(10, 15, 25, 0.95); }
+}
