@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+  <link rel="stylesheet" href="mainmenu.css">
+<head>
+  <meta charset="UTF-8">
+  <title>AsCal</title>
+</head>
+<body>
+  <h1 id="maintitle">Welcome to AsCal!</h1>
+  <h3 id="subtitle">Click anywhere to start</h3>
+  <button id="theme">Themes</button>
+
+  <script>
+    document.body.addEventListener("click", function(event) {
+      if (event.target.id !== "theme") {
+        window.location.href = "nextpage.html"; 
+      }
+    });
+  </script>
+</body>
+</html>

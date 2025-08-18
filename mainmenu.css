@@ -1,0 +1,27 @@
+body {
+    margin: 0;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #ffffff;
+    color: rgb(0, 0, 0);
+    font-family: Arial, sans-serif;
+    text-align: center;
+    flex-direction: column;
+    }
+#subtitle {
+    display: flex;
+    justify-content: center;
+    color: rgb(109, 109, 109);
+}
+#theme {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    padding: 10px 15px;
+    background: #555;
+    border-radius: 12px;
+    color: rgb(255, 255, 255);
+    cursor: pointer;
+    }
