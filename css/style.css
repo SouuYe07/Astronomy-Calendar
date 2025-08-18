@@ -1,4 +1,5 @@
-/* === ROOT COLORS & FONTS === */
+@import url("menu.css");
+
 :root {
   --bg-color: #0b0f1a;
   --accent: #ff6f00;
@@ -150,3 +151,4 @@ body::after {
 @supports not ((backdrop-filter: blur(10px)) or (-webkit-backdrop-filter: blur(10px))) {
   .calendar { background: rgba(10, 15, 25, 0.95); }
 }
+
