@@ -3,28 +3,37 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>AsCal: Your Astronomy Fur-cast</title> <!-- Could be changeable??? idk HAHHAWHSAHWS -->
-  <link rel="stylesheet" href="style.css">
+  <title>AsCal: Your Astronomy Fur-cast</title>
+  <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
+  <div class="menu">
+    <h1>AsCal</h1>
+    <p class="subtitle">Your Astronomy Calendar</p>
+    <button id="open-calendar">Open Calendar</button>
+    <button id="settings">Settings</button>
+    <button id="themes-btn">Themes</button>
+  </div>
+  
   <div class="calendar">
     <div class="header">
-      <div class="btn" id="prev">Prev</div>
+      <div class="btn" id="prev">‹</div>
       <div class="btn" id="month-year"></div>
-      <div class="btn" id="next">Next</div>
+      <div class="btn" id="next">›</div>
     </div>
-    <div id="weekdays">
-      <div class="day">Sunday</div>
-      <div class="day">Monday</div>
-      <div class="day">Tuesday</div>
-      <div class="day">Wednesday</div>
-      <div class="day">Thursday</div>
-      <div class="day">Friday</div>
-      <div class="day">Saturday</div>
+    <div class="weekdays" id="weekdays">
+      <div class="day">Sun</div>
+      <div class="day">Mon</div>
+      <div class="day">Tue</div>
+      <div class="day">Wed</div>
+      <div class="day">Thu</div>
+      <div class="day">Fri</div>
+      <div class="day">Sat</div>
     </div>
-    <div class="days" id="days"></div> <!-- This is empty so we can place the javascript here and make it interactive -->
+    <div class="days" id="days"></div>
+    <button id="back-to-menu">Back to Menu</button>
   </div>
-<script src="fetch.js"></script>
-<script src="index.js"></script>
+
+  <script src="js/main.js"></script>
 </body>
 </html>
