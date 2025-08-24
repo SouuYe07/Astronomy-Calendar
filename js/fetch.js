@@ -1,5 +1,23 @@
 const api_key = `0bf6EN8WNOeqeiEo4mGyMu40BEk21nLsl5dU47o4`;
 
+async function events(month){
+    
+    try{
+        const response = await fetch (`https://ll.thespacedevs.com/2.3.0/events/?month=${month}&limit=50`)
+
+        if(!response.ok){
+            throw new Error("Could not fetch events resource")
+        }
+
+        const data = await response.text()
+        console.log(data)
+    }
+    catch(error){
+        console.error(error)
+    }
+
+}
+
 // Astronomy Picture of the Day
 async function apod(date){
 
@@ -7,11 +25,11 @@ async function apod(date){
         const response = await fetch (`https://api.nasa.gov/planetary/apod?api_key=${api_key}&date=${date}`)
 
         if (!response.ok){
-            throw new Error("Could not fetch resource")
+            throw new Error("Could not fetch apod resource")
         }
 
         const data = await response.json()
-        console.log(data)
+        console.log (data)
     }
 
     catch(error){
@@ -26,11 +44,11 @@ async function asteroid(date){
         const response = await fetch (`https://api.nasa.gov/neo/rest/v1/feed?start_date=${date}&end_date=${date}&api_key=${api_key}`)
 
         if (!response.ok){
-            throw new Error("Could not fetch resource")
+            throw new Error("Could not fetch asteroid resource")
         }
 
         const data = await response.json()
-        console.log(data)
+        return (data)
     }
 
     catch(error){
@@ -38,21 +56,3 @@ async function asteroid(date){
     }
 }
 
-// Space Weather Database Of Notifications, Knowledge, Information (DONKI)
-async function donki(date){
-
-    try{
-        const response = await fetch (`https://api.nasa.gov/DONKI/FLR?startDate=${date}&endDate=${date}&api_key=${api_key}`)
-
-        if (!response.ok){
-            throw new Error("Could not fetch resource")
-        }
-
-        const data = await response.json()
-        console.log(data)
-    }
-
-    catch(error){
-        console.error(error)
-    }
-}

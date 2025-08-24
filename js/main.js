@@ -10,6 +10,8 @@ const nextBtn = document.getElementById("next");
 const monthYearDisplay = document.getElementById("month-year");
 const daysContainer = document.getElementById("days");
 
+events(12)
+
 // Calendar state
 let currentMonth = new Date().getMonth();
 let currentYear = new Date().getFullYear();
