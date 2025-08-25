@@ -32,7 +32,7 @@ openCalendarBtn.addEventListener("click", () => {
 
 backBtn.addEventListener("click", () => {
   calendar.style.display = "none";
-  menu.style.display = "block";
+  menu.style.display = "flex";
 });
 
 prevBtn.addEventListener("click", () => {
