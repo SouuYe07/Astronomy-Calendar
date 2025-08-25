@@ -1,0 +1,165 @@
+#details-tab {
+  position: absolute;
+  top: 50%;
+  right: -100%; /* Start completely off-screen */
+  transform: translateY(-50%);
+  width: 90vw;
+  max-width: 500px;
+  height: 85vh;
+  background: rgba(15, 20, 30, 0.95);
+  backdrop-filter: blur(15px);
+  border: 1px solid rgba(255,255,255,0.1);
+  border-radius: 16px;
+  box-shadow: 0 20px 40px rgba(0,0,0,0.8);
+  transition: right 0.4s ease;
+  overflow: hidden;
+  z-index: 12;
+  padding: 0;
+  display: none; /* Hide by default */
+}
+
+/* Only show details tab when calendar is active */
+.calendar.active ~ #details-tab {
+  display: block;
+}
+
+/* When details are shown, slide the details tab into view */
+.calendar-container.show-details #details-tab {
+  right: 5vw; /* Slide into view with some margin */
+}
+
+#close-details {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  cursor: pointer;
+  padding: 8px 12px;
+  border-radius: 50%;
+  transition: all 0.3s ease;
+  font-weight: 500;
+  user-select: none;
+  background: rgba(255, 255, 255, 0.1);
+  color: white;
+  border: none;
+  font-size: 1.5rem;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 13;
+}
+
+#close-details:hover {
+  background: rgba(255, 255, 255, 0.2);
+  transform: scale(1.1);
+}
+
+#details-title {
+  font-size: 1.3rem;
+  font-weight: 600;
+  color: white;
+  margin: 20px;
+  margin-top: 60px; /* Make room for close button */
+  margin-bottom: 20px;
+  padding-bottom: 15px;
+  border-bottom: 1px solid rgba(255,255,255,0.1);
+}
+
+#asteroid-details,
+#apod,
+#event-details {
+  padding: 0 20px 20px 20px;
+  color: white;
+}
+
+#asteroid-details,
+#apod,
+#event-details {
+  padding: 0 20px 20px 20px;
+  color: white;
+  overflow-y: auto;
+  max-height: calc(85vh - 120px); /* Account for title and close button */
+}
+
+#asteroid-details h3,
+#apod h3,
+#event-details h3 {
+  margin: 15px 0 10px 0;
+  color: var(--accent);
+  font-size: 1.1rem;
+  border-bottom: 1px solid rgba(255, 111, 0, 0.3);
+  padding-bottom: 8px;
+}
+
+#asteroid-details p,
+#apod p,
+#event-details p {
+  margin: 8px 0;
+  line-height: 1.5;
+  opacity: 0.9;
+  font-size: 0.95rem;
+}
+
+.event-item {
+  background: rgba(255, 255, 255, 0.05);
+  padding: 15px;
+  border-radius: 8px;
+  margin: 10px 0;
+  border-left: 4px solid var(--accent);
+}
+
+.event-time {
+  font-weight: 600;
+  color: var(--accent);
+  font-size: 0.9rem;
+}
+
+.event-title {
+  font-size: 1rem;
+  margin: 5px 0;
+  font-weight: 500;
+}
+
+.event-description {
+  font-size: 0.9rem;
+  opacity: 0.8;
+  line-height: 1.4;
+}
+
+/* Responsive for details tab */
+@media (max-width: 768px) {
+  #details-tab {
+    width: 95vw;
+    max-width: none;
+    right: -100%;
+  }
+  
+  .calendar-container.show-details #details-tab {
+    right: 2.5vw;
+  }
+  
+  .calendar-container.show-details .calendar {
+    transform: translateX(-100%); /* Move calendar completely off-screen on mobile */
+  }
+  
+  #details-title {
+    font-size: 1.1rem;
+    margin: 15px;
+    margin-top: 50px;
+  }
+  
+  #asteroid-details,
+  #apod,
+  #event-details {
+    padding: 0 15px 15px 15px;
+    max-height: calc(85vh - 100px);
+  }
+}
+
+/* Fallback if blur not supported */
+@supports not ((backdrop-filter: blur(15px)) or (-webkit-backdrop-filter: blur(15px))) {
+  #details-tab { 
+    background: rgba(15, 20, 30, 0.98); 
+  }
+}
