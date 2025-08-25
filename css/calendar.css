@@ -1,17 +1,51 @@
+.calendar-container {
+  display: none; /* Hide the entire calendar container by default */
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  z-index: 10;
+}
+
+/* Show calendar container when calendar is active */
+.calendar-container:has(.calendar.active) {
+  display: flex;
+}
+
+/* Fallback for browsers that don't support :has() */
+.calendar-container.active {
+  display: flex;
+}
+
 .calendar {
   width: 90vw;
   max-width: 600px;
   height: 85vh;
-  display: none;
+  display: none; /* Keep hidden initially */
   flex-direction: column;
   background: rgba(10, 15, 25, 0.9);
   backdrop-filter: blur(15px);
   border: 1px solid rgba(255,255,255,0.1);
   border-radius: 16px;
   box-shadow: 0 20px 40px rgba(0,0,0,0.8);
-  overflow: hidden;
   position: relative;
-  z-index: 1;
+  z-index: 11;
+  transition: transform 0.4s ease;
+  flex-shrink: 0;
+}
+
+/* Show calendar when active */
+.calendar.active {
+  display: flex;
+}
+
+/* When details are shown, slide the entire calendar to the left */
+.calendar-container.show-details .calendar {
+  transform: translateX(-70%); /* Move calendar left to make room for details */
 }
 
 .header {
@@ -105,6 +139,14 @@
   box-shadow: 0 4px 15px rgba(255, 111, 0, 0.2);
 }
 
+/* Selected day style */
+.days div.selected {
+  background: rgba(255, 111, 0, 0.2);
+  border: 2px solid var(--accent);
+  color: white;
+  font-weight: 700;
+}
+
 /* Highlight today */
 .days .today {
   background: var(--today-bg);
@@ -128,6 +170,17 @@
 .days .other-month:hover {
   opacity: 0.5;
   background: rgba(255,255,255,0.05);
+}
+
+.empty-day {
+  background: transparent !important;
+  cursor: default !important;
+}
+
+.empty-day:hover {
+  background: transparent !important;
+  transform: none !important;
+  box-shadow: none !important;
 }
 
 #back-to-menu {
