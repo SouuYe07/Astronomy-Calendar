@@ -10,11 +10,12 @@
   <div class="menu">
     <h1>AsCal</h1>
     <p class="subtitle">Your Astronomy Calendar</p>
-    <button id="open-calendar">Open Calendar</button>
-    <button id="settings">Settings</button>
-    <button id="themes-btn">Themes</button>
+    <button class="menu-btn" id="open-calendar">Open Calendar</button>
+    <button class="menu-btn" id="settings">Settings</button>
+    <button class="menu-btn" id="themes-btn">Themes</button>
   </div>
   
+<div class="calendar-container">
   <div class="calendar">
     <div class="header">
       <div class="btn" id="prev">‹</div>
@@ -34,7 +35,19 @@
     <button id="back-to-menu">Back to Menu</button>
   </div>
 
-  <script src="js/fetch.js"></script>
+  <div id="details-tab">
+    <button id="close-details">×</button>
+    <h2 id="details-title">Day Details</h2>
+    <div id="asteroid-details"></div>
+    <div id="apod"></div>
+    <div id="event-details"></div>
+  </div>
+</div>
+
+
   <script src="js/main.js"></script>
+  <script src="js/calendar.js"></script>
+  <script src="js/details-tab.js"></script>
+
 </body>
 </html>
